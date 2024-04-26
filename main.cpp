@@ -9,9 +9,9 @@ static LSM6DSLSensor acc_gyro(&devI2c,0xD4,D4,D5); // high address
 
 float computeAngle(int x, int y, int z){
     
-    float magnitude = sqrt(static_cast<float>(x * x + y * y + z * z));
-    float pitch = atan2(x, sqrt(x * x + z * z)); //pitch calculation    
-    float roll = atan2(-x, sqrt(y * y + z * z)); //roll calculation one of these may not be used depends on which angle you are looking for
+    
+    float pitch = atan2(x, sqrt(y * y + z * z)); //pitch calculation    
+    float roll = atan2(y, sqrt(x * x + z * z)); //roll calculation one of these may not be used depends on which angle you are looking for
 
     // Calculate the resultant angle (angle between acceleration vector and positive x-axis)
     
